@@ -1,0 +1,14 @@
+
+
+.count {
+    background-color: #282c34;
+    min-height: 2vh;
+    width: 30vh;
+    margin: 2px 0 2px 180px;
+    align-items:flex-end;
+    font-size: calc(10px + 2vmin);
+    color:wheat;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 5px 8px #000;
+  }
+  
