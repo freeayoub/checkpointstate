@@ -12,20 +12,22 @@ class App extends React.Component {
       isShow: true,
       counter: 0,
     };
-  }
-
-  handleClick = () =>{  this.setState({ isShow: !this.state.isShow, })};
-
- componentDidMount() {
-     setInterval(() => {
+    setInterval(() => {
       this.setState((prevState) => ({
-        counter: prevState.counter + 1,
+        counter: prevState.counter+1,
       }));
     },1000);
   }
+ 
+ 
+
+  handleClick = () =>{  this.setState({ isShow: !this.state.isShow, })};
+
+ 
 
   render() {
-    console.log('render')
+    
+    
     const cardStyle={
       width:'200px',
       height:'200px',
@@ -35,7 +37,17 @@ class App extends React.Component {
       margin:'4px',
       boxShadow:"0 5px 8px #000"
   };
+   const handleTime=()=>{
+if (this.state.counter <60 )
+    {
+  return `${this.state.counter} second(s)`;
+    }
+   const SS = parseInt(this.state.counter %60 ,10)
+   const MM = parseInt((this.state.counter/60)%60 ,10)
+   const HH = parseInt((this.state.counter/(60*60))%60 ,10)
+   return `${HH}h: ${MM}m: ${SS}s`
 
+   }
     return (
       <div>
         <div style={{width:'500px',height:'500px', border:'2px solid lightgrey',borderRadius: '20px', margin:'15px'}}> 
@@ -53,7 +65,7 @@ class App extends React.Component {
          ) }
       </div>
       <div className="count">
-      Count: {this.state.counter} {" "} sec
+      Count: {handleTime()} 
     </div>
       <button  style={{boxShadow:"0 5px 8px #000",margin: '50px'}}  type="button" className="btn" onClick={this.handleClick} >show profile</button>
     </div>
